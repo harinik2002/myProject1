@@ -1,12 +1,24 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+
 
 //use App\Http\Controllers\CustomerController;//
 
 use App\Http\Controllers\EmployeeInsertController;
+use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 
-Route::get('/', [EmployeeInsertController::class, 'insertForm']);
+Route::view('register','auth.register');
+Route::post('store',[RegisterController::class,'store']);
+Route::view('home','/home');
+Route::view('login','auth.login');
+Route::post('authenticate',[LoginController::class,'authenticate']);
+Route::get('logout',[LoginController::class,'logout']);
+
+
+
+Route::get('/newemployee', [EmployeeInsertController::class, 'insertForm']);
 Route::post('/create', [EmployeeInsertController::class, 'insert']);
 Route::get('/employees', [EmployeeInsertController::class, 'showEmployee']);
 Route::get('/edit/{id}', [EmployeeInsertController::class, 'edit']);

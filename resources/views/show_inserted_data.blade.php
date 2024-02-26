@@ -39,4 +39,7 @@
         </tbody>
     </table>
 </body>
+
+<a href="logout">Logout</a>
 </html>
+
