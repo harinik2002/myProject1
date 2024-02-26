@@ -48,9 +48,13 @@ class EmployeeInsertController extends Controller
             }
 
 
+
             if ($request->hasFile('photo')) {
-                $path = $request->file('photo')->store('public/photos');
-                $fileName = basename($path);
+
+                $currentDate = date('Ymd');
+                $fileExtension = $request->file('photo')->getClientOriginalExtension();
+                $fileName = "zaaroz{$currentDate}.{$fileExtension}";
+                $path = $request->file('photo')->storeAs('public/photos', $fileName);
             } else {
                 $fileName = null;
             }
@@ -126,8 +130,10 @@ class EmployeeInsertController extends Controller
                 if ($employee->photo) {
                     storage::delete('public/photos/' . $employee->photo);
                 }
-                $path = $request->file('photo')->store('public/photos');
-                $fileName = basename($path);
+                $currentDate = date('Ymd');
+                $fileExtension = $request->file('photo')->getClientOriginalExtension();
+                $fileName = "zaaroz{$currentDate}.{$fileExtension}";
+                $path = $request->file('photo')->storeAs('public/photos', $fileName);
             } else {
                 $fileName = $employee->photo;
             }
@@ -147,4 +153,5 @@ class EmployeeInsertController extends Controller
         }
     }
 }
+
 
