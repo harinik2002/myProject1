@@ -13,10 +13,10 @@ Route::get('constant',[ConstantController::class,'index']);
 
 Route::view('register','auth.register');
 Route::post('store',[RegisterController::class,'store']);
-Route::view('home','/home');
+Route::view('/','/home');
 Route::view('login','auth.login');
 Route::post('authenticate',[LoginController::class,'authenticate']);
-Route::get('logout',[LoginController::class,'logout']);
+Route::get('logout',[EmployeeInsertController::class,'logout']);
 
 
 

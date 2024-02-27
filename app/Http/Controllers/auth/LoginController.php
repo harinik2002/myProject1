@@ -20,15 +20,10 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user(); // Retrieve the authenticated user
-            return redirect('/home');
+            return redirect('/newemployee');
         } else {
             return back()->withErrors(['Invalid credentials!']);
         }
     }
 
-    public function logout()
-    {
-        Auth::logout();
-        return redirect('/login');
-    }
 }

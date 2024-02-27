@@ -25,6 +25,9 @@
             {!! implode('',$errors->all('<li>:message</li>'))!!}
         </ui>
         @endif
+
+
+
     </form>
 </body>
 </html>

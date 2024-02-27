@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 class RegisterController extends Controller
 {
     public function store(Request $request){
@@ -27,7 +28,7 @@ class RegisterController extends Controller
 
             Auth::login($user);
 
-            return redirect('/home');
+            return redirect('/');
 
     }
 }

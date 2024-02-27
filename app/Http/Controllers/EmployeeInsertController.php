@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Redirect;
@@ -146,12 +147,19 @@ class EmployeeInsertController extends Controller
                 'photo' => $fileName
             ]);
 
-            return $this->showEmployee();
+            return redirect("/employees");
+
         } catch (Exception $e) {
 
             return redirect()->back()->withErrors(['errors' => 'An error occurred while updating employee data.']);
         }
     }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+
 }
 
 
