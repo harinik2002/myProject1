@@ -17,7 +17,7 @@ Route::view('/','/home');
 Route::view('login','auth.login');
 Route::post('authenticate',[LoginController::class,'authenticate']);
 Route::get('logout',[EmployeeInsertController::class,'logout']);
-
+Route::view('success','/registersuccess');
 
 
 Route::get('/newemployee', [EmployeeInsertController::class, 'insertForm']);
