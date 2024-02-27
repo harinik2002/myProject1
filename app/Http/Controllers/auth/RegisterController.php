@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 class RegisterController extends Controller
 {
+    public function register()
+    {
+        return view ('auth.register');
+    }
+
+
     public function store(Request $request){
         $request->validate(
             [

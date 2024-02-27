@@ -9,6 +9,10 @@ use App\Models\User; // Import the User model
 
 class LoginController extends Controller
 {
+    public function login()
+    {
+        return view ('auth.login');
+    }
     public function authenticate(Request $request)
     {
         $request->validate([
