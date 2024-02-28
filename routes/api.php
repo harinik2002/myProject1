@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 });*/
 
 
-
+/*
 use App\Http\Controllers\ConstantController;
 use App\Http\Controllers\EmployeeInsertController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -56,7 +56,7 @@ Route::post('/create', [EmployeeInsertController::class, 'insert']);
 Route::get('/employees', [EmployeeInsertController::class, 'showEmployee']);
 Route::get('/edit/{id}', [EmployeeInsertController::class, 'edit']);
 Route::post('/edit/{id}', [EmployeeInsertController::class, 'update']);
-
+*/
 
 ?>
 

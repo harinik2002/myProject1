@@ -1,6 +1,6 @@
 <?php
 //use App\Http\Controllers\CustomerController;//
-/*
+
 use App\Http\Controllers\ConstantController;
 use App\Http\Controllers\EmployeeInsertController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -14,7 +14,7 @@ Route::get('register',[RegisterController::class,'register']);
 Route::post('store',[RegisterController::class,'store']);
 
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('home');
 });
 

@@ -15,11 +15,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-
-
-
-
+       $schedule->command('inspire')->everyminute()->sendOutputTo(storage_path('laravel.log'));
     }
+
+
+
+
 
     /**
      * Register the commands for the application.
