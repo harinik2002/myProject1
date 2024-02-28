@@ -20,10 +20,14 @@
         <button type="submit">Register</button>
 
 
-        @if ($errors->any())
-        <ui>
-            {!! implode('',$errors->all('<li>:message</li>'))!!}
-        </ui>
+        @if ($errors)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                     @endforeach
+                </ul>
+            </div>
         @endif
 
 

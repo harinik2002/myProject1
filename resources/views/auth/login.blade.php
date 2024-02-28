@@ -14,11 +14,12 @@
         <label for="password">Password</label><br>
         <input type="password" id="password" name="password"><br>
         <button type="submit">Login</button>
-        @if ($errors->any())
-        <ui>
-            {!! implode('',$errors->all('<li>:message</li>'))!!}
-        </ui>
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
         @endif
+
     </form>
 </body>
 </html>

@@ -8,15 +8,28 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+
 class RegisterController extends Controller
 {
     public function register()
     {
         return view ('auth.register');
     }
+    public function store(Request $request)
+    {
+
+        $errors = Session::get('errors');
 
 
-    public function store(Request $request){
+        if ($errors) {
+
+            foreach ($errors->all() as $error) {
+
+                echo $error . "<br>";
+            }
+        }
+
         $request->validate(
             [
                 'name'=>'required',

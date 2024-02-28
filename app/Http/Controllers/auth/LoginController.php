@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User; // Import the User model
+use App\Models\User;
+use Illuminate\Support\Facades\Session;
+
 
 class LoginController extends Controller
 {
@@ -15,6 +17,7 @@ class LoginController extends Controller
     }
     public function authenticate(Request $request)
     {
+
         $request->validate([
             'email' => 'required',
             'password' => 'required'
@@ -23,10 +26,11 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            $user = Auth::user(); // Retrieve the authenticated user
+            $user = Auth::user();
             return redirect('/newemployee');
         } else {
-            return back()->withErrors(['Invalid credentials!']);
+            Session::flash('error', 'Invalid credentials!');
+            return redirect()->back();
         }
     }
 
