@@ -37,15 +37,17 @@
                     <img id="imagePreview" src="#" alt="Photo Preview" style="display: none; max-width: 100px; max-height: 100px;">
                 </td>
             </tr>
-            @if($errors->any())
-                <tr>
-                    <td colspan="2">
-                        <div class="alert alert-danger" style="color: red;">
-                            {{ $errors->first() }}
-                        </div>
-                    </td>
-                </tr>
+            @if (session('error'))
+            <tr>
+                <td colspan="2">
+                    <div class="alert alert-danger" style="color: red;">
+                        {{ session('error') }}
+                    </div>
+
+                </td>
+            </tr>
             @endif
+
             <tr>
                 <td colspan="2">
                     <input type="submit" value="Add employee" />

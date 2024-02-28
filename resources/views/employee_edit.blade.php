@@ -41,14 +41,15 @@
                     <input type="file" id="photo" name="photo" placeholder="upload photo" />
                 </td>
             </tr>
-            @if($errors->any())
-                <tr>
-                    <td colspan="2">
-                        <div class="alert alert-danger" style="color: red;">
-                            {{ $errors->first() }}
-                        </div>
-                    </td>
-                </tr>
+            @if (session('error'))
+            <tr>
+                <td colspan="2">
+                    <div class="alert alert-danger" style="color: red;">
+                        {{ session('error') }}
+                    </div>
+
+                </td>
+            </tr>
             @endif
             <tr>
                 <td colspan="2">

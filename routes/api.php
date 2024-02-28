@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 });*/
 
 
-/*
+
 use App\Http\Controllers\ConstantController;
 use App\Http\Controllers\EmployeeInsertController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -59,4 +59,4 @@ Route::post('/edit/{id}', [EmployeeInsertController::class, 'update']);
 
 
 ?>
-*/
+

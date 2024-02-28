@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Redirect;
 use Exception;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class EmployeeInsertController extends Controller
 {
     public function insertForm()
     {
+        $errors = Session::get('errors');
         try {
             return view('insert_form');
         } catch (Exception $e) {
@@ -43,6 +44,8 @@ class EmployeeInsertController extends Controller
                 ->where('email_id', $email_id)
                 ->orWhere('phone_number', $phone_number)
                 ->first();
+
+            $errors = Session::get('errors');
 
             if ($existingEmployee) {
                 return Redirect::back()->withInput()->withErrors(['errors' => 'Employee with the same email or phone number already exists.']);
@@ -77,6 +80,8 @@ class EmployeeInsertController extends Controller
 
     public function showEmployee()
     {
+
+        $errors = Session::get('errors');
         try {
             $employees = DB::table('harinidb1.employee')->get();
             return view('show_inserted_data', ['employees' => $employees]);
@@ -88,6 +93,7 @@ class EmployeeInsertController extends Controller
 
     public function edit($id)
     {
+        $errors = Session::get('errors');
         try {
             $employee = DB::table('harinidb1.employee')->where('id', $id)->first();
             return view('employee_edit', ['employee' => $employee]);
@@ -99,6 +105,7 @@ class EmployeeInsertController extends Controller
 
     public function update(Request $request, $id)
     {
+        $errors = Session::get('errors');
         try {
 
             $request->validate([

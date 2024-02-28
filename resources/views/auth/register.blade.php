@@ -18,19 +18,11 @@
         <label for="password_confirmation">Confirm Password</label><br>
         <input type="password" id="password_confirmation" name="password_confirmation"><br>
         <button type="submit">Register</button>
-
-
-        @if ($errors)
+        @if (session('error'))
             <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                     @endforeach
-                </ul>
+                {{ session('error') }}
             </div>
         @endif
-
-
 
     </form>
 </body>
