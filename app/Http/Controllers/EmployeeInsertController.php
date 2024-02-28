@@ -164,7 +164,7 @@ class EmployeeInsertController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('/home');
     }
 
 }
