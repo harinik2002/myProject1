@@ -1,6 +1,6 @@
 <?php
 //use App\Http\Controllers\CustomerController;//
-
+/*
 use App\Http\Controllers\ConstantController;
 use App\Http\Controllers\EmployeeInsertController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -40,7 +40,7 @@ Route::post('/edit/{id}', [EmployeeInsertController::class, 'update']);
 
 
 
-/*
+
 Route::get('/customer', [CustomerController::class, 'customerInsert']);
 Route::post('/create', [CustomerController::class, 'insert']);
 */
